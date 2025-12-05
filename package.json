@@ -1,11 +1,14 @@
 {
   "name": "components",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -17,7 +20,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pub": "pnpm publish --tag legacy --registry http://localhost:4873"
+    "pub:prepare": "pnpm version patch --no-git-tag-version",
+    "pub:do": "pnpm run build && pnpm publish --tag legacy --registry http://localhost:4873 --no-git-checks",
+    "pub": "pnpm run pub:prepare && pnpm run pub:do"
   },
   "peerDependencies": {
     "antd": "^5.29.1",
