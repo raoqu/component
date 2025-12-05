@@ -17,7 +17,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pub": "pnpm publish --registry http://localhost:4873"
+    "pub": "pnpm publish --tag legacy --registry http://localhost:4873"
   },
   "peerDependencies": {
     "antd": "^5.29.1",
